@@ -2,10 +2,18 @@
 // 1. Compute the exponent of a number (using recursion);
 //8^2 = 8 x 8 = 64
 console.log('1) Compute the exponent of a number.\n');
-const exponent = (x, n) => n <= 1 ? x : x * exponent(x, n - 1);
+const exponent = (x, n) => {
+  if (n === 0) return 1;
+  else {
+    return n > 0 ? x * exponent(x, n - 1) : exponent(x, n + 1) / x;
+  }
+}
 
 console.log('exponent(8, 2):', exponent(8, 2));
 console.log('exponent(4, 4):', exponent(4, 4));
+console.log('exponent(4, -2):', exponent(4, -2));
+console.log('exponent(8, -3):', exponent(8, -3));
+
 
 // 2. Write functions min and max that will find min and max number in array using apply
 console.log('\n2) Write functions min and max that will find min and max number in array using apply.\n');
